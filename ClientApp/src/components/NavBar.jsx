@@ -34,18 +34,21 @@ export function NavBar() {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <Link className="btn btn-success mr-2" to="/questions/add">
-            + Add
-          </Link>
+          <span
+            className="btn btn-outline-success my-2 mr-2 my-sm-0"
+            type="submit"
+          >
+            Search
+          </span>
           <input
             className="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="&#x1F50D; Search"
             aria-label="Search"
           />
-          <span className="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </span>
+          <Link className="btn btn-primary mr-2" to="/questions/add">
+            Ask Question
+          </Link>
         </form>
       </div>
     </nav>
