@@ -5,21 +5,32 @@ export function ShowQuestion() {
   return (
     <div className="taco-listing">
       <div className="media mb-5">
-        <span className="pr-3 display-2" role="img" aria-label="taco">
-          🌮
-        </span>
+        <small className="mr-3">
+          <button className="btn btn-success btn-sm">
+            <span className="mr-2" role="img" aria-label="upvote">
+              👍🏻
+            </span>
+            50
+          </button>
+        </small>
+        <small className="mr-3">
+          <button className="btn btn-danger btn-sm">
+            <span className="mr-2" role="img" aria-label="downvote">
+              👎🏻
+            </span>{' '}
+            20
+          </button>
+        </small>
         <div className="media-body">
-          <h1 className="mt-0">Grump Gringo</h1>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-          scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-          vulputate fringilla. Donec lacinia congue felis in faucibus.
-          <address className="mt-3">
-            <Link to="maps.google.com">
-              1355 Market St, Suite 900 San Francisco, CA 94103
-            </Link>
-          </address>
-          <Link to="tel:867-5309">867-5309</Link>
+          <h1 className="mt-0">HTTP GET for Netflix</h1>
+          <p>
+            {' '}
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+            vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </p>
+          <Link to="user/HackerBoy">HackerBoy</Link>
         </div>
       </div>
 
