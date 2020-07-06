@@ -3,24 +3,26 @@ import { Link } from 'react-router-dom'
 
 export function ShowQuestion() {
   return (
-    <div className="taco-listing">
+    <div className="specific-question">
       <div className="media mb-5">
-        <small className="mr-3">
-          <button className="btn btn-success btn-sm">
-            <span className="mr-2" role="img" aria-label="upvote">
-              👍🏻
-            </span>
-            50
-          </button>
-        </small>
-        <small className="mr-3">
-          <button className="btn btn-danger btn-sm">
-            <span className="mr-2" role="img" aria-label="downvote">
-              👎🏻
-            </span>{' '}
-            20
-          </button>
-        </small>
+        <div className="votesButton">
+          <small className="mr-3">
+            <button className="btn btn-success btn-sm">
+              <span className="mr-2" role="img" aria-label="upvote">
+                👍🏻
+              </span>
+              50
+            </button>
+          </small>
+          <small className="mr-3">
+            <button className="btn btn-danger btn-sm">
+              <span className="mr-1" role="img" aria-label="downvote">
+                👎🏻
+              </span>{' '}
+              20
+            </button>
+          </small>
+        </div>
         <div className="media-body">
           <h1 className="mt-0">HTTP GET for Netflix</h1>
           <p>
