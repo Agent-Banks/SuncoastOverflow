@@ -25,13 +25,29 @@ export function ShowQuestion() {
 
       <div className="row mb-5">
         <div className="col-12">
-          <h3>Reviews</h3>
+          <h3>2 Answers</h3>
           <ul className="timeline">
             <li>
               <p className="mb-2">
-                Wow, great food
+                The Gamer Guy
                 <span className="float-right">21 March, 2014</span>
               </p>
+              <small className="mr-3">
+                <button className="btn btn-success btn-sm">
+                  <span className="mr-2" role="img" aria-label="upvote">
+                    👍🏻
+                  </span>
+                  50
+                </button>
+              </small>
+              <small className="mr-3">
+                <button className="btn btn-danger btn-sm">
+                  <span className="mr-2" role="img" aria-label="downvote">
+                    👎🏻
+                  </span>{' '}
+                  20
+                </button>
+              </small>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
                 scelerisque diam non nisi semper, et elementum lorem ornare.
@@ -41,9 +57,25 @@ export function ShowQuestion() {
             </li>
             <li>
               <p className="mb-2">
-                Wow, great food
+                Hacker Man 2018
                 <span className="float-right">21 March, 2014</span>
               </p>
+              <small className="mr-3">
+                <button className="btn btn-success btn-sm">
+                  <span className="mr-2" role="img" aria-label="upvote">
+                    👍🏻
+                  </span>
+                  50
+                </button>
+              </small>
+              <small className="mr-3">
+                <button className="btn btn-danger btn-sm">
+                  <span className="mr-2" role="img" aria-label="downvote">
+                    👎🏻
+                  </span>{' '}
+                  20
+                </button>
+              </small>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
                 scelerisque diam non nisi semper, et elementum lorem ornare.
@@ -56,7 +88,7 @@ export function ShowQuestion() {
       </div>
 
       <div className="card">
-        <div className="card-header">Enter your own review</div>
+        <div className="card-header">Your Answer</div>
         <div className="card-body">
           <form>
             <div className="form-group">
@@ -77,7 +109,7 @@ export function ShowQuestion() {
               <textarea type="text" className="form-control" id="review" />
             </div>
             <button type="submit" className="btn btn-primary">
-              Submit
+              Post Your Answer
             </button>
           </form>
         </div>
