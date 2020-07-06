@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export function Restaurants() {
+export function Questions() {
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -16,7 +16,7 @@ export function Restaurants() {
       </nav>
       <div className="list-group">
         <Link
-          to="/restaurants/42"
+          to="/questions/42"
           className="list-group-item list-group-item-action"
         >
           <div className="d-flex w-100 justify-content-between">
@@ -43,7 +43,7 @@ export function Restaurants() {
         </Link>
 
         <Link
-          to="/restaurants/42"
+          to="/questions/42"
           className="list-group-item list-group-item-action"
         >
           <div className="d-flex w-100 justify-content-between">

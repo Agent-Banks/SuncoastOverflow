@@ -34,7 +34,7 @@ export function NavBar() {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <Link className="btn btn-success mr-2" to="/restaurants/add">
+          <Link className="btn btn-success mr-2" to="/questions/add">
             + Add
           </Link>
           <input

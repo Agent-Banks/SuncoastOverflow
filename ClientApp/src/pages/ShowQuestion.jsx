@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export function ShowRestaurant() {
+export function ShowQuestion() {
   return (
     <div className="taco-listing">
       <div className="media mb-5">

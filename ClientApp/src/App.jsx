@@ -3,10 +3,10 @@ import { Route, Switch } from 'react-router-dom'
 
 import './custom.scss'
 
-import { Restaurants } from './pages/Restaurants'
+import { Questions } from './pages/Questions'
 import { Header } from './components/Header'
-import { AddRestaurant } from './pages/AddRestaurant'
-import { ShowRestaurant } from './pages/ShowRestaurant'
+import { AddQuestion } from './pages/AddQuestion'
+import { ShowQuestion } from './pages/ShowQuestion'
 import { NavBar } from './components/NavBar'
 
 export default function App() {
@@ -17,13 +17,13 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Restaurants />
+            <Questions />
           </Route>
-          <Route path="/restaurants/add">
-            <AddRestaurant />
+          <Route path="/questions/add">
+            <AddQuestion />
           </Route>
-          <Route path="/restaurants/:id">
-            <ShowRestaurant />
+          <Route path="/questions/:id">
+            <ShowQuestion />
           </Route>
         </Switch>
       </main>

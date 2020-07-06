@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function AddRestaurant() {
+export function AddQuestion() {
   return (
     <div className="card">
       <div className="card-header">Add a Restaurant</div>
