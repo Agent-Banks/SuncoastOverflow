@@ -35,17 +35,25 @@ export function NavBar() {
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <span
-            className="btn btn-outline-success my-2 mr-2 my-sm-0"
+            className="btn btn-outline-primary my-2 mr-2 my-sm-0"
             type="submit"
           >
             Search
           </span>
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="&#x1F50D; Search"
-            aria-label="Search"
-          />
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                &#x1F50D;
+              </span>
+            </div>
+            <input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon1"
+            />
+          </div>
           <Link className="btn btn-primary mr-2" to="/questions/add">
             Ask Question
           </Link>

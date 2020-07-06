@@ -10,7 +10,7 @@ export function Questions() {
             <Link to="#">Home</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            2 Taco Joints Found
+            2 Questions Found
           </li>
         </ol>
       </nav>
@@ -20,16 +20,18 @@ export function Questions() {
           className="list-group-item list-group-item-action"
         >
           <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1">Taco Heaven</h5>
-            <small>5 Reviews</small>
+            <h5 className="mb-1">
+              How to access the correct `this` inside a callback?
+            </h5>
+            <small>12 Answers</small>
           </div>
-          <p className="mb-1">123 Main Street</p>
+          <p className="mb-1">70 Votes</p>
           <small className="mr-3">
             <button className="btn btn-success btn-sm">
               <span className="mr-2" role="img" aria-label="upvote">
                 👍🏻
               </span>
-              5
+              50
             </button>
           </small>
           <small className="mr-3">
@@ -37,7 +39,7 @@ export function Questions() {
               <span className="mr-2" role="img" aria-label="downvote">
                 👎🏻
               </span>{' '}
-              3
+              20
             </button>
           </small>
         </Link>
@@ -47,16 +49,19 @@ export function Questions() {
           className="list-group-item list-group-item-action"
         >
           <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1">Taco Mania</h5>
-            <small>2 Reviews</small>
+            <h5 className="mb-1">
+              What is the difference between client-side and server-side
+              programming?
+            </h5>
+            <small>4 Answers</small>
           </div>
-          <p className="mb-1">555 East Pima</p>
+          <p className="mb-1">90 Votes</p>
           <small className="mr-3">
             <button className="btn btn-success btn-sm">
               <span className="mr-2" role="img" aria-label="upvote">
                 👍🏻
               </span>
-              10
+              85
             </button>
           </small>
           <small className="mr-3">
@@ -64,7 +69,7 @@ export function Questions() {
               <span className="mr-2" role="img" aria-label="downvote">
                 👎🏻
               </span>{' '}
-              1
+              5
             </button>
           </small>
         </Link>
