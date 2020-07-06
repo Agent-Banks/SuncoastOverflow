@@ -6,7 +6,7 @@ export function ShowQuestion() {
     <div className="specific-question">
       <div className="media mb-5">
         <div className="votesButton">
-          <small className="mr-3">
+          <small className="mr-3 pb-1">
             <button className="btn btn-success btn-sm">
               <span className="mr-2" role="img" aria-label="upvote">
                 👍🏻
@@ -25,6 +25,7 @@ export function ShowQuestion() {
         </div>
         <div className="media-body">
           <h1 className="mt-0">HTTP GET for Netflix</h1>
+          <p> Asked on 21 March, 2014 </p>
           <p>
             {' '}
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
@@ -33,6 +34,7 @@ export function ShowQuestion() {
             vulputate fringilla. Donec lacinia congue felis in faucibus.
           </p>
           <Link to="user/HackerBoy">HackerBoy</Link>
+          <p>HTTP COOKIES NETFLIX</p>
         </div>
       </div>
 
