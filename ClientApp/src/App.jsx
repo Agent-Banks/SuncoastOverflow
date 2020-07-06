@@ -1,24 +1,32 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router'
-import { Layout } from './components/Layout'
-import { Home } from './pages/Home'
-import HelloWorld from './pages/_template/HelloWorld'
-import HeyWorld from './pages/_template/HeyWorld'
-import NotFound from './pages/NotFound'
-import './custom.scss'
-export default class App extends Component {
-  static displayName = App.name
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
-  render() {
-    return (
-      <Layout>
+import './custom.scss'
+
+import { Restaurants } from './pages/Restaurants'
+import { Header } from './components/Header'
+import { AddRestaurant } from './pages/AddRestaurant'
+import { ShowRestaurant } from './pages/ShowRestaurant'
+import { NavBar } from './components/NavBar'
+
+export default function App() {
+  return (
+    <>
+      <NavBar />
+      <main className="container-fluid p-4">
+        <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/counter" component={HelloWorld} />
-          <Route exact path="/typescript" component={HeyWorld} />
-          <Route exact path="*" component={NotFound} />
+          <Route exact path="/">
+            <Restaurants />
+          </Route>
+          <Route path="/restaurants/add">
+            <AddRestaurant />
+          </Route>
+          <Route path="/restaurants/:id">
+            <ShowRestaurant />
+          </Route>
         </Switch>
-      </Layout>
-    )
-  }
+      </main>
+    </>
+  )
 }
