@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function SingleQuestionForList(props) {
@@ -31,6 +31,15 @@ function SingleQuestionForList(props) {
 
 export function Questions() {
   const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    fetch('/api/Questions')
+      .then(response => response.json())
+      .then(apiData => {
+        setQuestions(apiData)
+      })
+  }, [])
+
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -45,7 +54,7 @@ export function Questions() {
       </nav>
       <div className="list-group">
         {questions.map(question => (
-          <SingleQuestionForList question={question} />
+          <SingleQuestionForList key={question.id} question={question} />
         ))}
       </div>
     </>
