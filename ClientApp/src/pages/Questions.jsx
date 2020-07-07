@@ -48,7 +48,7 @@ export function Questions() {
             <Link to="#">Home</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            2 Questions Found
+            {questions.length} Questions Found
           </li>
         </ol>
       </nav>
