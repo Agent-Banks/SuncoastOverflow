@@ -25,6 +25,9 @@ export function ShowQuestion() {
         </div>
         <div className="media-body">
           <h1 className="mt-0">HTTP GET for Netflix</h1>
+          <Link to="user/HackerBoy">
+            <strong>HackerBoy</strong>
+          </Link>
           <p> Asked on 21 March, 2014 </p>
           <p>
             {' '}
@@ -33,7 +36,6 @@ export function ShowQuestion() {
             vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
             vulputate fringilla. Donec lacinia congue felis in faucibus.
           </p>
-          <Link to="user/HackerBoy">HackerBoy</Link>
           <p>HTTP COOKIES NETFLIX</p>
         </div>
       </div>
