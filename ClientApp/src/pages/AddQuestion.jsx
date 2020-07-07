@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export function AddQuestion() {
+  const [newQuestion, setNewQuestion] = useState({
+    title: '',
+    body: '',
+    tags: '',
+  })
   return (
     <div className="card">
       <div className="card-header">Ask A Public Question</div>
@@ -8,7 +13,7 @@ export function AddQuestion() {
         <form>
           <div className="form-group">
             <label htmlFor="title">Title</label>
-            <input type="text" className="form-control" id="name" />
+            <input type="text" className="form-control" id="title" />
             <small id="titleHelp" className="form-text text-muted">
               Be specific and imagine you’re asking a question to another person
             </small>
@@ -16,7 +21,7 @@ export function AddQuestion() {
 
           <div className="form-group">
             <label htmlFor="body">Body</label>
-            <textarea type="text" className="form-control" id="description" />
+            <textarea type="text" className="form-control" id="body" />
             <small id="bodyHelp" className="form-text text-muted">
               Include all the information someone would need to answer your
               question
@@ -25,7 +30,7 @@ export function AddQuestion() {
 
           <div className="form-group">
             <label htmlFor="tags">Tags</label>
-            <input type="text" className="form-control" id="telephone" />
+            <input type="text" className="form-control" id="tags" />
             <small id="tagHelp" className="form-text text-muted">
               Add up to 5 tags to describe what your question is about
             </small>
