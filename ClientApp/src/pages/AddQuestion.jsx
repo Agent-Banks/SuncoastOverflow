@@ -6,6 +6,15 @@ export function AddQuestion() {
     body: '',
     tags: '',
   })
+
+  const handleFormFieldChange = event => {
+    const whichFieldChanged = event.target.id
+    const newValue = event.target.value
+    setNewQuestion({
+      ...newQuestion,
+      [whichFieldChanged]: newValue,
+    })
+  }
   return (
     <div className="card">
       <div className="card-header">Ask A Public Question</div>
@@ -18,7 +27,7 @@ export function AddQuestion() {
               className="form-control"
               id="title"
               value={newQuestion.title}
-              onChange={handleName}
+              onChange={handleFormFieldChange}
             />
             <small id="titleHelp" className="form-text text-muted">
               Be specific and imagine you’re asking a question to another person
@@ -32,7 +41,7 @@ export function AddQuestion() {
               className="form-control"
               id="body"
               value={newQuestion.body}
-              onChange={handleName}
+              onChange={handleFormFieldChange}
             />
             <small id="bodyHelp" className="form-text text-muted">
               Include all the information someone would need to answer your
@@ -47,7 +56,7 @@ export function AddQuestion() {
               className="form-control"
               id="tags"
               value={newQuestion.tags}
-              onChange={handleName}
+              onChange={handleFormFieldChange}
             />
             <small id="tagHelp" className="form-text text-muted">
               Add up to 5 tags to describe what your question is about
