@@ -11,6 +11,7 @@ namespace SuncoastOverflow.Models
 
         [Required]
         public string Body { get; set; }
+
         public string Tags { get; set; }
     }
 }
