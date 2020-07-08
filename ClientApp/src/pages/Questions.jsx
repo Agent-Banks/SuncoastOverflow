@@ -52,6 +52,7 @@ export function Questions(props) {
       .then(response => response.json())
       .then(apiData => {
         setQuestions(apiData)
+        loadQuestions()
       })
   }
 
