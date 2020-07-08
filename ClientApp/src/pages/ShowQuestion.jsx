@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
+import { Questions } from './Questions'
 
 export function ShowQuestion() {
   const params = useParams()
@@ -11,6 +12,7 @@ export function ShowQuestion() {
     body: '',
     tags: '',
     createdAt: '',
+    answers: [],
   })
 
   useEffect(() => {
@@ -58,71 +60,36 @@ export function ShowQuestion() {
       <div className="row mb-5">
         <div className="col-12">
           <h3>2 Answers</h3>
-          <ul className="timeline">
-            <li className="userAnswer">
-              <div className="votesButton">
-                <small className="mr-3 pb-1">
-                  <button className="btn btn-success btn-sm">
-                    <span className="mr-2" role="img" aria-label="upvote">
-                      👍🏻
-                    </span>
-                    50
-                  </button>
-                </small>
-                <small className="mr-3">
-                  <button className="btn btn-danger btn-sm">
-                    <span className="mr-1" role="img" aria-label="downvote">
-                      👎🏻
-                    </span>{' '}
-                    20
-                  </button>
-                </small>
-              </div>
-              <div className="AnswerDetails">
-                <p className="mb-2">
-                  <strong>The Gamer Guy</strong>
-                  <span className="float-right">21 March, 2014</span>
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque scelerisque diam non nisi semper, et elementum lorem
-                  ornare. Maecenas placerat facilisis mollis. Duis sagittis
-                  ligula in sodales vehicula....
-                </p>
-              </div>
-            </li>
-            <li className="userAnswer">
-              <div className="votesButton">
-                <small className="mr-3 pb-1">
-                  <button className="btn btn-success btn-sm">
-                    <span className="mr-2" role="img" aria-label="upvote">
-                      👍🏻
-                    </span>
-                    50
-                  </button>
-                </small>
-                <small className="mr-3">
-                  <button className="btn btn-danger btn-sm">
-                    <span className="mr-1" role="img" aria-label="downvote">
-                      👎🏻
-                    </span>{' '}
-                    20
-                  </button>
-                </small>
-              </div>
-              <div className="AnswerDetails">
-                <p className="mb-2">
-                  <strong>The Gamer Guy</strong>
-                  <span className="float-right">21 March, 2014</span>
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque scelerisque diam non nisi semper, et elementum lorem
-                  ornare. Maecenas placerat facilisis mollis. Duis sagittis
-                  ligula in sodales vehicula....
-                </p>
-              </div>
-            </li>
+          <ul>
+            {question.answers.map(answer => (
+              <li key={answer.id} className="userAnswer">
+                <div className="votesButton">
+                  <small className="mr-3 pb-1">
+                    <button className="btn btn-success btn-sm">
+                      <span className="mr-2" role="img" aria-label="upvote">
+                        👍🏻
+                      </span>
+                      50
+                    </button>
+                  </small>
+                  <small className="mr-3">
+                    <button className="btn btn-danger btn-sm">
+                      <span className="mr-1" role="img" aria-label="downvote">
+                        👎🏻
+                      </span>{' '}
+                      20
+                    </button>
+                  </small>
+                </div>
+                <div className="AnswerDetails">
+                  <p className="mb-2">
+                    <strong>The Gamer Guy</strong>
+                    <span className="float-right">{answer.createdAt}</span>
+                  </p>
+                  <p>{answer.body}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
