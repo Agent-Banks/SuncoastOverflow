@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router'
 
 export function ShowQuestion() {
+  const params = useParams()
+  const id = params.id
+
+  const [question, setQuestion] = useState({
+    title: '',
+    body: '',
+    tags: '',
+  })
+
+  useEffect(() => {
+    const fetchQuestion = () => {
+      fetch(`/api/Questions/${id}`)
+        .then(response => response.json())
+        .then(apiData => setQuestion(apiData))
+    }
+
+    fetchQuestion()
+  }, [])
+
   return (
     <div className="specific-question">
       <div className="media mb-5">
@@ -24,7 +44,7 @@ export function ShowQuestion() {
           </small>
         </div>
         <div className="media-body">
-          <h1 className="mt-0">HTTP GET for Netflix</h1>
+          <h1 className="mt-0">{question.title}</h1>
           <Link to="user/HackerBoy">
             <strong>HackerBoy</strong>
           </Link>

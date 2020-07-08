@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 
 function SingleQuestionForList(props) {
   return (
-    <Link to="/questions/42" className="list-group-item list-group-item-action">
+    <Link
+      to={`/questions/${props.question.id}`}
+      className="list-group-item list-group-item-action"
+    >
       <div className="d-flex w-100 justify-content-between">
         <h5 className="mb-1">{props.question.title}</h5>
         <small>12 Answers</small>
