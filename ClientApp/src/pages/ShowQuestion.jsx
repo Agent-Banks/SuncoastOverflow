@@ -58,40 +58,42 @@ export function ShowQuestion() {
       </div>
 
       <div className="row mb-5">
-        <div className="col-12">
-          <h3>2 Answers</h3>
-          <ul>
-            {question.answers.map(answer => (
-              <li key={answer.id} className="userAnswer">
-                <div className="votesButton">
-                  <small className="mr-3 pb-1">
-                    <button className="btn btn-success btn-sm">
-                      <span className="mr-2" role="img" aria-label="upvote">
-                        👍🏻
-                      </span>
-                      50
-                    </button>
-                  </small>
-                  <small className="mr-3">
-                    <button className="btn btn-danger btn-sm">
-                      <span className="mr-1" role="img" aria-label="downvote">
-                        👎🏻
-                      </span>{' '}
-                      20
-                    </button>
-                  </small>
-                </div>
-                <div className="AnswerDetails">
-                  <p className="mb-2">
-                    <strong>The Gamer Guy</strong>
-                    <span className="float-right">{answer.createdAt}</span>
-                  </p>
-                  <p>{answer.body}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {question.answers.length > 0 && (
+          <div className="col-12">
+            <h3>{question.answers.length} Answers</h3>
+            <ul>
+              {question.answers.map(answer => (
+                <li key={answer.id} className="userAnswer">
+                  <div className="votesButton">
+                    <small className="mr-3 pb-1">
+                      <button className="btn btn-success btn-sm">
+                        <span className="mr-2" role="img" aria-label="upvote">
+                          👍🏻
+                        </span>
+                        50
+                      </button>
+                    </small>
+                    <small className="mr-3">
+                      <button className="btn btn-danger btn-sm">
+                        <span className="mr-1" role="img" aria-label="downvote">
+                          👎🏻
+                        </span>{' '}
+                        20
+                      </button>
+                    </small>
+                  </div>
+                  <div className="AnswerDetails">
+                    <p className="mb-2">
+                      <strong>The Gamer Guy</strong>
+                      <span className="float-right">{answer.createdAt}</span>
+                    </p>
+                    <p>{answer.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="card">
@@ -99,22 +101,14 @@ export function ShowQuestion() {
         <div className="card-body">
           <form>
             <div className="form-group">
-              <label htmlFor="summary">Summary</label>
-              <input
-                type="text"
-                className="form-control"
-                id="summary"
-                aria-describedby="summaryHelp"
-              />
+              <label for="review">Answer</label>
+              <textarea type="text" className="form-control" id="review" />
               <small id="summaryHelp" className="form-text text-muted">
                 Enter a brief summary of your review. Example:{' '}
                 <strong>Great food, good prices.</strong>
               </small>
             </div>
-            <div className="form-group">
-              <label for="review">Review</label>
-              <textarea type="text" className="form-control" id="review" />
-            </div>
+
             <button type="submit" className="btn btn-primary">
               Post Your Answer
             </button>
