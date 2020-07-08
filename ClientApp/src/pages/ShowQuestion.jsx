@@ -49,14 +49,8 @@ export function ShowQuestion() {
             <strong>HackerBoy</strong>
           </Link>
           <p> Asked on 21 March, 2014 </p>
-          <p>
-            {' '}
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-            vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </p>
-          <p>HTTP COOKIES NETFLIX</p>
+          <p>{question.body}</p>
+          <p>Tags: {question.tags}</p>
         </div>
       </div>
 
