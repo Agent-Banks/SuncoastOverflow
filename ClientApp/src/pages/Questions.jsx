@@ -1,6 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+const handleUpvote = () => {
+  const url = `/api/QuestionVotes/${props.question.id}/upvote`
+  fetch(url, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+  }).then(() => {
+    console.log('Need to reload the questions')
+  })
+}
+const handleDownvote = () => {
+  const url = `/api/QuestionVotes/${props.question.id}/downvote`
+  fetch(url, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+  }).then(() => {
+    console.log('Need to reload the questions')
+  })
+}
+
 function SingleQuestionForList(props) {
   return (
     <Link to="/questions/42" className="list-group-item list-group-item-action">
@@ -10,19 +29,19 @@ function SingleQuestionForList(props) {
       </div>
       <p className="mb-1">70 Votes</p>
       <small className="mr-3">
-        <button className="btn btn-success btn-sm">
+        <button className="btn btn-success btn-sm" onClick={handleUpvote}>
           <span className="mr-2" role="img" aria-label="upvote">
             👍🏻
           </span>
-          50
+          {props.question.upvoteCount}
         </button>
       </small>
       <small className="mr-3">
-        <button className="btn btn-danger btn-sm">
+        <button className="btn btn-danger btn-sm" onClick={handleDownvote}>
           <span className="mr-2" role="img" aria-label="downvote">
             👎🏻
           </span>{' '}
-          20
+          {props.question.downvoteCount}
         </button>
       </small>
     </Link>
