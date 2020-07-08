@@ -42,6 +42,19 @@ function SingleQuestionForList(props) {
 export function Questions(props) {
   const [questions, setQuestions] = useState([])
 
+  function loadQuestions() {
+    const url =
+      props.activeFilter.length === 0
+        ? `/api/Questions`
+        : `/api/Questions?filter=${props.activeFilter}`
+
+    fetch(url)
+      .then(response => response.json())
+      .then(apiData => {
+        setQuestions(apiData)
+      })
+  }
+
   const handleVote = (event, id, type) => {
     event.preventDefault()
     const url = `/api/QuestionVotes/${id}/${type}`
@@ -54,22 +67,7 @@ export function Questions(props) {
   }
 
   useEffect(() => {
-    // let url = '/api/Questions'
-
-    // if (props.activeFilter !== '') {
-    //   url = `/api/Questions?filter=${props.activeFilter}`
-    // }
-
-    const url =
-      props.activeFilter.length === 0
-        ? `/api/Questions`
-        : `/api/Questions?filter=${props.activeFilter}`
-
-    fetch(url)
-      .then(response => response.json())
-      .then(apiData => {
-        setQuestions(apiData)
-      })
+    loadQuestions()
   }, [props.activeFilter])
 
   return (
