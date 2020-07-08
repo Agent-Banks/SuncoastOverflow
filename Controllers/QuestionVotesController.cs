@@ -1,12 +1,13 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SuncoastOverflow.Models;
 
 namespace SuncoastOverflow.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionVotesController
+    public class QuestionVotesController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
@@ -40,6 +41,12 @@ namespace SuncoastOverflow.Controllers
                 default:
                     return BadRequest();
             }
+
+            _context.Entry(question).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
     }
