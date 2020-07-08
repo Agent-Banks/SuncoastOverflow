@@ -10,6 +10,7 @@ export function ShowQuestion() {
     title: '',
     body: '',
     tags: '',
+    createdAt: '',
   })
 
   useEffect(() => {
@@ -48,7 +49,7 @@ export function ShowQuestion() {
           <Link to="user/HackerBoy">
             <strong>HackerBoy</strong>
           </Link>
-          <p> Asked on 21 March, 2014 </p>
+          <p>{question.createdAt}</p>
           <p>{question.body}</p>
           <p>Tags: {question.tags}</p>
         </div>
