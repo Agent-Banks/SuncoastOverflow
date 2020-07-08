@@ -1,25 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const handleUpvote = () => {
-  const url = `/api/QuestionVotes/${props.question.id}/upvote`
-  fetch(url, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-  }).then(() => {
-    console.log('Need to reload the questions')
-  })
-}
-const handleDownvote = () => {
-  const url = `/api/QuestionVotes/${props.question.id}/downvote`
-  fetch(url, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-  }).then(() => {
-    console.log('Need to reload the questions')
-  })
-}
-
 function SingleQuestionForList(props) {
   return (
     <Link to="/questions/42" className="list-group-item list-group-item-action">
@@ -29,7 +10,12 @@ function SingleQuestionForList(props) {
       </div>
       <p className="mb-1">70 Votes</p>
       <small className="mr-3">
-        <button className="btn btn-success btn-sm" onClick={handleUpvote}>
+        <button
+          className="btn btn-success btn-sm"
+          onClick={event =>
+            props.handleVote(event, props.question.id, 'upvote')
+          }
+        >
           <span className="mr-2" role="img" aria-label="upvote">
             👍🏻
           </span>
@@ -37,7 +23,12 @@ function SingleQuestionForList(props) {
         </button>
       </small>
       <small className="mr-3">
-        <button className="btn btn-danger btn-sm" onClick={handleDownvote}>
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={event =>
+            props.handleVote(event, props.question.id, 'downvote')
+          }
+        >
           <span className="mr-2" role="img" aria-label="downvote">
             👎🏻
           </span>{' '}
@@ -50,6 +41,17 @@ function SingleQuestionForList(props) {
 
 export function Questions(props) {
   const [questions, setQuestions] = useState([])
+
+  const handleVote = (event, id, type) => {
+    event.preventDefault()
+    const url = `/api/QuestionVotes/${id}/${type}`
+    fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+    }).then(() => {
+      console.log('Need to reload the questions')
+    })
+  }
 
   useEffect(() => {
     // let url = '/api/Questions'
@@ -84,7 +86,11 @@ export function Questions(props) {
       </nav>
       <div className="list-group">
         {questions.map(question => (
-          <SingleQuestionForList key={question.id} question={question} />
+          <SingleQuestionForList
+            key={question.id}
+            question={question}
+            handleVote={handleVote}
+          />
         ))}
       </div>
     </>
