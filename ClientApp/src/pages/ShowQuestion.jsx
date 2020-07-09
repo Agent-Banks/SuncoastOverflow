@@ -5,7 +5,7 @@ import { Questions } from './Questions'
 
 export function ShowQuestion() {
   const params = useParams()
-  const id = parseInt(params.id)
+  const id = params.id
 
   const [question, setQuestion] = useState({
     title: '',
@@ -16,7 +16,7 @@ export function ShowQuestion() {
   })
 
   const [newAnswer, setNewAnswer] = useState({
-    summary: '',
+    body: '',
     questionId: id,
   })
 
@@ -33,12 +33,12 @@ export function ShowQuestion() {
   const handleNewAnswerFieldChange = event => {
     const whichFieldChanged = event.target.id
     const value = event.target.value
-
     setNewAnswer({ ...newAnswer, [whichFieldChanged]: value })
   }
 
   const handleNewAnswerSubmit = event => {
     event.preventDefault()
+
     fetch(`/api/Answers`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -122,7 +122,7 @@ export function ShowQuestion() {
       </div>
 
       <div className="card">
-        <div className="card-header">Enter your own answer</div>
+        <div className="card-header">Your Answer</div>
         <div className="card-body">
           <form onSubmit={handleNewAnswerSubmit}>
             <div className="form-group">
@@ -130,7 +130,7 @@ export function ShowQuestion() {
               <textarea
                 type="text"
                 className="form-control"
-                id="answer"
+                id="body"
                 value={newAnswer.body}
                 onChange={handleNewAnswerFieldChange}
               />
