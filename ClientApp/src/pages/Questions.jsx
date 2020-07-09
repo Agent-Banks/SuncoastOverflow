@@ -11,7 +11,9 @@ function SingleQuestionForList(props) {
         <h5 className="mb-1">{props.question.title}</h5>
         <small>{props.question.answers.length} Answers</small>
       </div>
-      <p className="mb-1">70 Votes</p>
+      <p className="mb-1">
+        {props.question.upvoteCount + props.question.downvoteCount} Votes
+      </p>
       <small className="mr-3">
         <button
           className="btn btn-success btn-sm"
