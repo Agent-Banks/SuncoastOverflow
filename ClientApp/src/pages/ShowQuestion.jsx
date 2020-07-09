@@ -5,7 +5,7 @@ import { Questions } from './Questions'
 
 export function ShowQuestion() {
   const params = useParams()
-  const id = params.id
+  const id = parseInt(params.id)
 
   const [question, setQuestion] = useState({
     title: '',
