@@ -112,9 +112,9 @@ export function ShowQuestion() {
                     </small>
                   </div>
                   <div className="AnswerDetails">
-                    <p className="mb-2">
+                    <p className="postedAnswerTitle mb-2">
                       <strong>The Gamer Guy</strong>
-                      <span className="float-right">
+                      <span>
                         {format(new Date(answer.createdAt), dateFormat)}
                       </span>
                     </p>
@@ -141,8 +141,7 @@ export function ShowQuestion() {
                 onChange={handleNewAnswerFieldChange}
               />
               <small id="summaryHelp" className="form-text text-muted">
-                Enter a brief summary of your review. Example:{' '}
-                <strong>Great food, good prices.</strong>
+                Enter a brief summary of your Answer.
               </small>
             </div>
 

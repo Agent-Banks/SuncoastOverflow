@@ -22,3 +22,8 @@ code {
   display: flex;
   flex-direction: row;
 }
+
+.postedAnswerTitle {
+  display: flex;
+  justify-content: space-between;
+}
