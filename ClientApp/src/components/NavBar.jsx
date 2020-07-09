@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router'
+import { isLoggedIn, logout } from '../auth'
 
 export function NavBar(props) {
   const [filterText, setFilterText] = useState('')
@@ -8,6 +9,12 @@ export function NavBar(props) {
   const handleClickSearch = event => {
     props.setActiveFilter(filterText)
   }
+
+  const handleLogout = () => {
+    logout()
+    window.location = '/'
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="#">
@@ -39,12 +46,16 @@ export function NavBar(props) {
             </Link>
           </li>
         </ul>
-        <Link className="btn btn-success mr-2" to="/signup">
-          Signup
-        </Link>
-        <Link className="btn btn-success mr-2" to="/signin">
-          Signin
-        </Link>
+        {isLoggedIn() || (
+          <Link className="btn btn-success mr-2" to="/signup">
+            Signup
+          </Link>
+        )}
+        {isLoggedIn() || (
+          <Link className="btn btn-success mr-2" to="/signin">
+            Signin
+          </Link>
+        )}
         <Route exact path="/">
           <form className="form-inline my-2 my-lg-0">
             <span
@@ -74,6 +85,11 @@ export function NavBar(props) {
             </Link>
           </form>
         </Route>
+        {isLoggedIn() && (
+          <span className="btn btn-success mr-2" onClick={handleLogout}>
+            Sign out
+          </span>
+        )}
       </div>
     </nav>
   )
