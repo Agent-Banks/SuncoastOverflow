@@ -8,6 +8,7 @@ import { Header } from './components/Header'
 import { AddQuestion } from './pages/AddQuestion'
 import { ShowQuestion } from './pages/ShowQuestion'
 import { NavBar } from './components/NavBar'
+import { SignUp } from './pages/Signup'
 
 export default function App() {
   const [activeFilter, setActiveFilter] = useState('')
