@@ -15,15 +15,40 @@ export function ShowQuestion() {
     answers: [],
   })
 
-  useEffect(() => {
-    const fetchQuestion = () => {
-      fetch(`/api/Questions/${id}`)
-        .then(response => response.json())
-        .then(apiData => setQuestion(apiData))
-    }
+  const [newAnswer, setNewAnswer] = useState({
+    summary: '',
+    questionId: id,
+  })
 
+  const fetchQuestion = () => {
+    fetch(`/api/Questions/${id}`)
+      .then(response => response.json())
+      .then(apiData => setQuestion(apiData))
+  }
+
+  useEffect(() => {
     fetchQuestion()
   }, [])
+
+  const handleNewAnswerFieldChange = event => {
+    const whichFieldChanged = event.target.id
+    const value = event.target.value
+
+    setNewAnswer({ ...newAnswer, [whichFieldChanged]: value })
+  }
+
+  const handleNewAnswerSubmit = event => {
+    event.preventDefault()
+    fetch(`/api/Answers`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newAnswer),
+    })
+      .then(response => response.json)
+      .then(apiResponse => {
+        fetchQuestion()
+      })
+  }
 
   return (
     <div className="specific-question">
@@ -97,12 +122,18 @@ export function ShowQuestion() {
       </div>
 
       <div className="card">
-        <div className="card-header">Your Answer</div>
+        <div className="card-header">Enter your own answer</div>
         <div className="card-body">
-          <form>
+          <form onSubmit={handleNewAnswerSubmit}>
             <div className="form-group">
-              <label for="review">Answer</label>
-              <textarea type="text" className="form-control" id="review" />
+              <label for="answer">Answer</label>
+              <textarea
+                type="text"
+                className="form-control"
+                id="answer"
+                value={newAnswer.body}
+                onChange={handleNewAnswerFieldChange}
+              />
               <small id="summaryHelp" className="form-text text-muted">
                 Enter a brief summary of your review. Example:{' '}
                 <strong>Great food, good prices.</strong>
