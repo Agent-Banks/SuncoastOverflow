@@ -42,6 +42,9 @@ export function NavBar(props) {
         <Link className="btn btn-success mr-2" to="/signup">
           Signup
         </Link>
+        <Link className="btn btn-success mr-2" to="/signin">
+          Signin
+        </Link>
         <Route exact path="/">
           <form className="form-inline my-2 my-lg-0">
             <span

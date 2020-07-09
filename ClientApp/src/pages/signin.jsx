@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { recordAuthentication } from './auth'
+import { recordAuthentication } from '../auth'
 export function SignIn() {
   const history = useHistory()
 
