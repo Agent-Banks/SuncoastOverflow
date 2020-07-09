@@ -20,6 +20,9 @@ export default function App() {
           <Route exact path="/">
             <Questions activeFilter={activeFilter} />
           </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
           <Route path="/questions/add">
             <AddQuestion />
           </Route>
