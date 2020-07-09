@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { Questions } from './Questions'
+import format from 'date-fns/format'
+
+const dateFormat = `EEEE, MMMM do, yyyy 'at' h:mm aaa`
 
 export function ShowQuestion() {
   const params = useParams()
@@ -47,6 +50,7 @@ export function ShowQuestion() {
       .then(response => response.json)
       .then(apiResponse => {
         fetchQuestion()
+        setNewAnswer({ ...newAnswer, body: '' })
       })
   }
 
@@ -110,7 +114,9 @@ export function ShowQuestion() {
                   <div className="AnswerDetails">
                     <p className="mb-2">
                       <strong>The Gamer Guy</strong>
-                      <span className="float-right">{answer.createdAt}</span>
+                      <span className="float-right">
+                        {format(new Date(answer.createdAt), dateFormat)}
+                      </span>
                     </p>
                     <p>{answer.body}</p>
                   </div>

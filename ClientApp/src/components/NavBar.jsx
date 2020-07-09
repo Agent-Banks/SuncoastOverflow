@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Route } from 'react-router'
 
 export function NavBar(props) {
   const [filterText, setFilterText] = useState('')
@@ -38,33 +39,35 @@ export function NavBar(props) {
             </Link>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <span
-            className="btn btn-outline-primary my-2 mr-2 my-sm-0"
-            onClick={handleClickSearch}
-          >
-            Search
-          </span>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                &#x1F50D;
-              </span>
+        <Route exact path="/">
+          <form className="form-inline my-2 my-lg-0">
+            <span
+              className="btn btn-outline-primary my-2 mr-2 my-sm-0"
+              onClick={handleClickSearch}
+            >
+              Search
+            </span>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  &#x1F50D;
+                </span>
+              </div>
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="basic-addon1"
+                value={filterText}
+                onChange={event => setFilterText(event.target.value)}
+              />
             </div>
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              aria-describedby="basic-addon1"
-              value={filterText}
-              onChange={event => setFilterText(event.target.value)}
-            />
-          </div>
-          <Link className="btn btn-primary mr-2" to="/questions/add">
-            Ask Question
-          </Link>
-        </form>
+            <Link className="btn btn-primary mr-2" to="/questions/add">
+              Ask Question
+            </Link>
+          </form>
+        </Route>
       </div>
     </nav>
   )
