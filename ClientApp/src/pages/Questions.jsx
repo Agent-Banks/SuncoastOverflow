@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { authHeader } from '../auth'
 
 function SingleQuestionForList(props) {
   return (
@@ -66,7 +67,7 @@ export function Questions(props) {
     const url = `/api/QuestionVotes/${id}/${type}`
     fetch(url, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...authHeader() },
     }).then(() => {
       console.log('Need to reload the questions')
     })
