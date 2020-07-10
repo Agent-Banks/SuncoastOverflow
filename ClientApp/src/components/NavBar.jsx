@@ -80,9 +80,11 @@ export function NavBar(props) {
                 onChange={event => setFilterText(event.target.value)}
               />
             </div>
-            <Link className="btn btn-primary mr-2" to="/questions/add">
-              Ask Question
-            </Link>
+            {isLoggedIn() && (
+              <Link className="btn btn-primary mr-2" to="/questions/add">
+                Ask Question
+              </Link>
+            )}
           </form>
         </Route>
         {isLoggedIn() && (

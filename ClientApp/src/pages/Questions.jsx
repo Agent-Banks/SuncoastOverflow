@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { authHeader } from '../auth'
+import { authHeader, isLoggedIn } from '../auth'
 
 function SingleQuestionForList(props) {
   return (
@@ -15,32 +15,36 @@ function SingleQuestionForList(props) {
       <p className="mb-1">
         {props.question.upvoteCount + props.question.downvoteCount} Votes
       </p>
-      <small className="mr-3">
-        <button
-          className="btn btn-success btn-sm"
-          onClick={event =>
-            props.handleVote(event, props.question.id, 'upvote')
-          }
-        >
-          <span className="mr-2" role="img" aria-label="upvote">
-            👍🏻
-          </span>
-          {props.question.upvoteCount}
-        </button>
-      </small>
-      <small className="mr-3">
-        <button
-          className="btn btn-danger btn-sm"
-          onClick={event =>
-            props.handleVote(event, props.question.id, 'downvote')
-          }
-        >
-          <span className="mr-2" role="img" aria-label="downvote">
-            👎🏻
-          </span>{' '}
-          {props.question.downvoteCount}
-        </button>
-      </small>
+      {isLoggedIn() && (
+        <small className="mr-3">
+          <button
+            className="btn btn-success btn-sm"
+            onClick={event =>
+              props.handleVote(event, props.question.id, 'upvote')
+            }
+          >
+            <span className="mr-2" role="img" aria-label="upvote">
+              👍🏻
+            </span>
+            {props.question.upvoteCount}
+          </button>
+        </small>
+      )}
+      {isLoggedIn() && (
+        <small className="mr-3">
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={event =>
+              props.handleVote(event, props.question.id, 'downvote')
+            }
+          >
+            <span className="mr-2" role="img" aria-label="downvote">
+              👎🏻
+            </span>{' '}
+            {props.question.downvoteCount}
+          </button>
+        </small>
+      )}
     </Link>
   )
 }

@@ -57,24 +57,7 @@ export function ShowQuestion() {
   return (
     <div className="specific-question">
       <div className="media mb-5">
-        <div className="votesButton">
-          <small className="mr-3 pb-1">
-            <button className="btn btn-success btn-sm">
-              <span className="mr-2" role="img" aria-label="upvote">
-                👍🏻
-              </span>
-              50
-            </button>
-          </small>
-          <small className="mr-3">
-            <button className="btn btn-danger btn-sm">
-              <span className="mr-1" role="img" aria-label="downvote">
-                👎🏻
-              </span>{' '}
-              20
-            </button>
-          </small>
-        </div>
+        <div className="votesButton"></div>
         <div className="media-body">
           <h2 className="mt-0">{question.title}</h2>
           <p>{question.body}</p>
@@ -89,24 +72,6 @@ export function ShowQuestion() {
             <ul>
               {question.answers.map(answer => (
                 <li key={answer.id} className="userAnswer">
-                  <div className="votesButton">
-                    <small className="mr-3 pb-1">
-                      <button className="btn btn-success btn-sm">
-                        <span className="mr-2" role="img" aria-label="upvote">
-                          👍🏻
-                        </span>
-                        50
-                      </button>
-                    </small>
-                    <small className="mr-3">
-                      <button className="btn btn-danger btn-sm">
-                        <span className="mr-1" role="img" aria-label="downvote">
-                          👎🏻
-                        </span>{' '}
-                        20
-                      </button>
-                    </small>
-                  </div>
                   <div className="AnswerDetails">
                     <p className="postedAnswerTitle mb-2">
                       <span>
