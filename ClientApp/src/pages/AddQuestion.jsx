@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import { authHeader } from '../auth'
 
 export function AddQuestion() {
   const history = useHistory()
@@ -25,16 +26,22 @@ export function AddQuestion() {
 
     fetch('/api/Questions', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...authHeader() },
       body: JSON.stringify(newQuestion),
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.status === 401) {
+          return { status: 401, errors: { login: 'Not Authorized ' } }
+        } else {
+          return response.json()
+        }
+      })
       .then(apiData => {
-        if (apiData.status === 400) {
+        if (apiData.status === 201) {
+          history.push('/')
+        } else {
           const newMessage = Object.values(apiData.errors).join(' ')
           setErrorMessage(newMessage)
-        } else {
-          history.push('/')
         }
       })
   }
