@@ -18,6 +18,8 @@ namespace SuncoastOverflow.Models
 
         public DateTime CreatedAt { get; private set; } = DateTime.Now;
 
+        public int UserId { get; set; }
+
         public List<Answer> Answers { get; set; }
 
         public int UpvoteCount { get; private set; } = 0;

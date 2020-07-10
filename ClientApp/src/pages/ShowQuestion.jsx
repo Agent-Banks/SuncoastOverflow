@@ -76,11 +76,7 @@ export function ShowQuestion() {
           </small>
         </div>
         <div className="media-body">
-          <h1 className="mt-0">{question.title}</h1>
-          <Link to="user/HackerBoy">
-            <strong>HackerBoy</strong>
-          </Link>
-          <p>{question.createdAt}</p>
+          <h2 className="mt-0">{question.title}</h2>
           <p>{question.body}</p>
           <p>Tags: {question.tags}</p>
         </div>
@@ -113,7 +109,6 @@ export function ShowQuestion() {
                   </div>
                   <div className="AnswerDetails">
                     <p className="postedAnswerTitle mb-2">
-                      <strong>The Gamer Guy</strong>
                       <span>
                         {format(new Date(answer.createdAt), dateFormat)}
                       </span>

@@ -7,6 +7,7 @@ namespace SuncoastOverflow.Models
         public int Id { get; set; }
         public string Body { get; set; }
         public DateTime CreatedAt { get; private set; } = DateTime.Now;
+        public int UserId { get; set; }
         public int QuestionId { get; set; }
     }
 }
