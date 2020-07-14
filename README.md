@@ -5,7 +5,7 @@ Create an anonymous question and answer site that allows users to up-vote and do
 ![SuncoastOverflow](https://github.com/codyb23/SDG-GIFS/blob/master/SuncoastOverflow.gif)
 
 ## Technologies used:
-HTML, CSS, & JavaScript, React JS, React Hooks
+HTML, CSS, & JavaScript, React JS, React Hooks, C#, EntityFramework, SQL
 
 ## Requirements:
 - As a user I should be able to view and search previously asked questions.
