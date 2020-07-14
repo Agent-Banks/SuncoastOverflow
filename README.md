@@ -1,6 +1,7 @@
 # SDG Assignment 32 : SuncoastOverflow
 
 Create an anonymous question and answer site that allows users to up-vote and down-vote questions and answers.
+
 ![SuncoastOverflow](https://github.com/codyb23/SDG-GIFS/blob/master/SuncoastOverflow.gif)
 
 ## Requirements:
